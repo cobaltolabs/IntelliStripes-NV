@@ -1,0 +1,63 @@
+<!--
+  ~ Copyright 2009 - 2012 Cobalto Labs SAS
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<idea-plugin version="2" url="https://github.com/cobaltolabs/IntelliStripes-NV">
+    <name>IntelliStripes-NV</name>
+    <description>IntelliStripes' Next Version. This plugin add support for Stripes Framework to IntelliJ Ultimante 11
+        and up
+    </description>
+    <version>0.1</version>
+    <vendor url="http://cobaltolabs.com" logo="/resources/icons/StripesIcon.png">Cobalto Labs SAS</vendor>
+    <idea-version since-build="117.105" until-build="117.9999"/>
+    <depends>com.intellij.modules.ultimate</depends>
+    <depends>com.intellij.jsp</depends>
+    <depends>com.intellij.spring</depends>
+    <depends>com.intellij.javaee</depends>
+    <depends>com.intellij.css</depends>
+    <application-components>
+        <!-- Add your application components here -->
+    </application-components>
+
+    <project-components>
+        <!-- Add your project components here -->
+        <component>
+            <implementation-class>com.cobaltolabs.intellij.stripes.components.project.StripesProjectComponent
+            </implementation-class>
+        </component>
+    </project-components>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <customPropertyScopeProvider
+                implementation="com.cobaltolabs.intellij.stripes.psi.StripesPropertyScopeProvider"/>
+        <psi.referenceContributor
+                implementation="com.cobaltolabs.intellij.stripes.references.contributors.SetterReferenceContributor"/>
+        <psi.referenceContributor
+                implementation="com.cobaltolabs.intellij.stripes.references.contributors.ResolutionReferenceContributor"/>
+        <psi.referenceContributor
+                implementation="com.cobaltolabs.intellij.stripes.references.contributors.StaticReferenceContributor"/>
+        <psi.referenceContributor
+                implementation="com.cobaltolabs.intellij.stripes.references.contributors.GetterReferenceContributor"/>
+        <psi.referenceContributor
+                implementation="com.cobaltolabs.intellij.stripes.references.contributors.SpecialCasesReferenceContributor"/>
+        <psi.referenceContributor
+                implementation="com.cobaltolabs.intellij.stripes.references.contributors.WebReferenceContributor"/>
+        <!-- Add your extensions here -->
+    </extensions>
+</idea-plugin>
